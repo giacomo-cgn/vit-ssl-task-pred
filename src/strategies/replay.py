@@ -53,7 +53,7 @@ class Replay(AbstractStrategy):
 
         return combined_batch, combined_task_labels
     
-    def after_forward(self, x_views_list, loss, task_loss, z_list, e_list):
+    def after_forward(self, x_views_list, loss, z_list, e_list, all_features_list, task_labels):
         """ Only update buffer features for replayed samples"""
         self.z_list = z_list
         if self.use_replay:
