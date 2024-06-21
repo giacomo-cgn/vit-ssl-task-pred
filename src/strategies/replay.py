@@ -75,4 +75,4 @@ class Replay(AbstractStrategy):
         z_stream_avg = sum(z_list_stream)/len(z_list_stream)
 
         # Update buffer with new stream samples and avg features
-        self.buffer.add(self.stream_mbatch.detach(), z_stream_avg.detach())
+        self.buffer.add(self.stream_mbatch.detach(), z_stream_avg.detach(), self.stream_task_labels)
