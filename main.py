@@ -197,7 +197,11 @@ def exec_experiment(**kwargs):
 
         exec_probing(kwargs, benchmark, trained_ssl_model.get_encoder_for_eval(), 0, probing_tr_ratio_arr, device, probing_upto_pth_dict,
                      probing_separate_pth_dict)
-        
+        if kwargs["strategy"] == 'replay_task_pred':
+            # Eval Task prediction
+            exec_eval_task_pred(kwargs=kwargs, model=trained_ssl_model.get_encoder_for_eval(), task_pred_head=strategy.task_pred_head,
+                                    benchmark=benchmark, exp_idx=exp_idx, save_pth=save_pth, device=device)
+    
     elif kwargs["random_encoder"]:
         
         # No SSL training is done, only using the randomly initialized encoder as feature extractor
