@@ -200,7 +200,7 @@ def exec_experiment(**kwargs):
         if kwargs["strategy"] == 'replay_task_pred':
             # Eval Task prediction
             exec_eval_task_pred(kwargs=kwargs, model=trained_ssl_model.get_encoder_for_eval(), task_pred_head=strategy.task_pred_head,
-                                    benchmark=benchmark, exp_idx=exp_idx, save_pth=save_pth, device=device)
+                                    benchmark=benchmark, exp_idx=0, save_pth=save_pth, device=device)
     
     elif kwargs["random_encoder"]:
         
